@@ -12,11 +12,11 @@ Estado actual: ✅ código listo para producción, ✅ probado localmente (regis
 En la terminal (dentro de `C:\Users\sapm3\LAB07_JWT`):
 
 ```bash
-# Crear el repositorio en github.com (botón "New repository", nombre: repositorybackend o lab07-jwt, PUBLIC, sin inicializar)
-git remote add github https://github.com/TU_USUARIO/lab07-jwt.git
+# 1. En github.com crear repo PUBLIC vacío llamado "lab07-jwt" (sin README)
+git remote add github https://github.com/CH3ch1t00/lab07-jwt.git
 git branch -M main
 git push -u github main
-# Pide usuario y token de GitHub (Settings → Developer settings → Personal access tokens)
+# Al hacer push se abre el navegador para iniciar sesión en GitHub (Git Credential Manager)
 ```
 
 ## 2. Desplegar el BACKEND en Render
