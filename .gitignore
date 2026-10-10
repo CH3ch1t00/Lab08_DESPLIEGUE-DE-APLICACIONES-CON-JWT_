@@ -1,0 +1,15 @@
+# Dependencias
+node_modules/
+
+# Archivos de compilación
+build/
+dist/
+
+# Base de datos SQLite (se crea en ejecución)
+*.sqlite
+
+# Variables de entorno (nunca subir al repositorio)
+.env
+
+# Logs
+*.log
