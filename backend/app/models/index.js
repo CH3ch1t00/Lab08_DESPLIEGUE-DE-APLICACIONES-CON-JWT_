@@ -7,15 +7,10 @@ import refreshTokenModel from "./refreshToken.model.js";
 let sequelize;
 
 // SQLite (ideal para despliegues gratuitos como Render) o MySQL/Postgres
-// En Render usamos better-sqlite3 (binarios precompilados, sin build nativo)
-// Dialecto = "sqlite", pero usamos better-sqlite3 como driver via dialectModule
-// better-sqlite3 exporta la clase Database directamente; Sequelize espera lib.Database
+// sqlite3 tiene binarios precompilados en Node 20 (LTS)
 if (dbConfig.dialect === "sqlite") {
-  const BetterSqlite3 = (await import("better-sqlite3")).default;
-  const dialectModule = { Database: BetterSqlite3 };
   sequelize = new Sequelize({
     dialect: "sqlite",
-    dialectModule,
     storage: dbConfig.SQLITE_STORAGE,
   });
 } else {
