@@ -7,9 +7,10 @@ import refreshTokenModel from "./refreshToken.model.js";
 let sequelize;
 
 // SQLite (ideal para despliegues gratuitos como Render) o MySQL/Postgres
+// En Render usamos better-sqlite3 (binarios precompilados, sin build nativo)
 if (dbConfig.dialect === "sqlite") {
   sequelize = new Sequelize({
-    dialect: "sqlite",
+    dialect: "better-sqlite3",
     storage: dbConfig.SQLITE_STORAGE,
   });
 } else {

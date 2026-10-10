@@ -4,7 +4,7 @@ services:
     name: lab08-jwt-backend
     runtime: node
     rootDir: backend
-    buildCommand: "apt-get update && apt-get install -y python3 make g++ && npm install && npm rebuild sqlite3 --build-from-source"
+    buildCommand: "npm install"
     startCommand: "npm start"
     envVars:
       - key: DB_DIALECT
