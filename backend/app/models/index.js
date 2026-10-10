@@ -8,9 +8,13 @@ let sequelize;
 
 // SQLite (ideal para despliegues gratuitos como Render) o MySQL/Postgres
 // En Render usamos better-sqlite3 (binarios precompilados, sin build nativo)
+// Dialecto = "sqlite", pero usamos better-sqlite3 como driver via dialectModule
 if (dbConfig.dialect === "sqlite") {
+  // Import dinámico de better-sqlite3 (ESM)
+  const Database = (await import("better-sqlite3")).default;
   sequelize = new Sequelize({
-    dialect: "better-sqlite3",
+    dialect: "sqlite",
+    dialectModule: Database,
     storage: dbConfig.SQLITE_STORAGE,
   });
 } else {
