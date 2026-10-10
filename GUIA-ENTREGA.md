@@ -12,11 +12,14 @@ Estado actual: ✅ código listo para producción, ✅ probado localmente (regis
 En la terminal (dentro de `C:\Users\sapm3\LAB07_JWT`):
 
 ```bash
-# 1. En github.com crear repo PUBLIC vacío llamado "lab07-jwt" (sin README)
-git remote add github https://github.com/CH3ch1t00/lab07-jwt.git
+# 1. En github.com crear repo PUBLIC vacío (sin README). GitHub NO permite espacios:
+#    si escribes "Lab08_DESPLIEGUE DE APLICACIONES CON JWT" usa guiones o guiones bajos
+git remote add github https://github.com/CH3ch1t00/Lab08_DESPLIEGUE-DE-APLICACIONES-CON-JWT.git
 git branch -M main
 git push -u github main
 # Al hacer push se abre el navegador para iniciar sesión en GitHub (Git Credential Manager)
+# Si dice "Repository not found": verifica el nombre exacto en la página del repo y usa:
+# git remote set-url github <URL-copiada-del-repo>
 ```
 
 ## 2. Desplegar el BACKEND en Render
