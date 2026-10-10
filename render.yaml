@@ -1,0 +1,33 @@
+services:
+  # BACKEND
+  - type: web
+    name: lab08-jwt-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: "npm install && npm rebuild sqlite3 --build-from-source 2>/dev/null || echo 'sqlite3 rebuild skipped'"
+    startCommand: "npm start"
+    envVars:
+      - key: DB_DIALECT
+        value: sqlite
+      - key: SQLITE_STORAGE
+        value: ./database.sqlite
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ALLOWED_ORIGINS
+        value: "*"
+
+  # FRONTEND
+  - type: web
+    name: lab08-jwt-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: ./build
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          name: lab08-jwt-backend
+          type: web
+          property: hostport
+        # Render inserta la URL automáticamente; si falla, ponla manual:
+        # value: "https://lab08-jwt-backend.onrender.com/api/"
